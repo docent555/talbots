@@ -13,6 +13,7 @@ module fourier
 
 contains
     subroutine dst_init(nn, ll)
+        implicit none
         integer, intent(in) :: nn
         real(c_double), intent(in) :: ll
         real(c_double) dx
@@ -42,6 +43,7 @@ contains
     end subroutine dst_destroy
 
     subroutine dst(v)
+        implicit none
         complex(c_double_complex), intent(inout) :: v(:)
         integer i, n
 
@@ -56,6 +58,7 @@ contains
     end subroutine dst
 
     subroutine idst(v)
+        implicit none
         complex(c_double_complex), intent(inout) :: v(:)
         integer i
 
@@ -69,6 +72,7 @@ contains
     end subroutine idst
 
     subroutine fft_init(nn)
+        implicit none
         integer, intent(in) :: nn
 
         n_fft = nn
@@ -90,6 +94,7 @@ contains
     end subroutine fft_destroy
 
     subroutine sincost_init(nn)
+        implicit none
         integer, intent(in) :: nn
 
         n_sc = nn
@@ -111,6 +116,7 @@ contains
     end subroutine sincost_destroy
 
     subroutine fft(v)
+        implicit none
         complex(c_double_complex), intent(inout) :: v(:)
 
         in_f = v
@@ -121,6 +127,7 @@ contains
     end subroutine fft
 
     subroutine ifft(v)
+        implicit none
         complex(c_double_complex), intent(inout) :: v(:)
 
         in_b = v
@@ -131,6 +138,7 @@ contains
     end subroutine ifft
 
     subroutine sint(v)
+        implicit none
         complex(c_double_complex), intent(inout) :: v(:)
 
         in_sc_f(2:n_sc) = v(2:n_sc)
@@ -144,6 +152,7 @@ contains
     end subroutine sint
 
     subroutine isint(v)
+        implicit none
         complex(c_double_complex), intent(inout) :: v(:)
 
         in_sc_b(2:n_sc) = -v(2:n_sc)*(ic/2.0d0)
@@ -157,6 +166,7 @@ contains
     end subroutine isint
 
     function fft_fun(v)
+        implicit none
         complex(c_double_complex), intent(in) :: v(:)
         complex(c_double_complex), dimension(size(v)) :: fft_fun
 
@@ -165,6 +175,7 @@ contains
     end function fft_fun
 
     function ifft_fun(v)
+        implicit none
         complex(c_double_complex), intent(in) :: v(:)
         complex(c_double_complex), dimension(size(v)) :: ifft_fun
 
@@ -173,6 +184,7 @@ contains
     end function ifft_fun
 
     function fs(v)
+        implicit none
         complex(c_double_complex), intent(in) :: v(:)
         complex(c_double_complex), dimension(size(v)) :: fs
 
@@ -190,6 +202,7 @@ contains
     end function fs
 
     function ifs(v)
+        implicit none
         complex(c_double_complex), intent(in) :: v(:)
         complex(c_double_complex), dimension(size(v)) :: ifs
 

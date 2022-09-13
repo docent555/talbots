@@ -84,7 +84,7 @@
 !            period = .false.
 !        end if
 !
-!        open (unit=1, file='input_fortran_real.dat')
+!        open (unit=1, file='input_fortran_real.in')
 !        write (unit=1, nml=param)
 !        close (unit=1)
 !
@@ -1246,7 +1246,7 @@ end program elektron2dsi
 !
 !    implicit none
 !
-!    open (unit=1, file='input_fortran.dat', status='old', err=101)
+!    open (unit=1, file='input_fortran.in', status='old', err=101)
 !    read (unit=1, nml=param, err=102)
 !    close (unit=1)
 !
@@ -1254,7 +1254,7 @@ end program elektron2dsi
 !
 !    return
 !101 print *, 'error of file open'; pause; stop
-!102 print *, 'error of reading file "input_fortran.dat"'; pause; stop
+!102 print *, 'error of reading file "input_fortran.in"'; pause; stop
 !end subroutine read_param
 !
 !!subroutine d(dadx)
